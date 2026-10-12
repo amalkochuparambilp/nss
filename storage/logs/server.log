@@ -58,3 +58,53 @@ Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:900
   2026-10-12 19:41:27 /register .................................... ~ 0.62ms
   Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
   2026-10-12 19:41:43 /about ....................................... ~ 0.65ms
+
+   INFO  Environment modified. Restarting server...  
+
+   INFO  Server running on [http://0.0.0.0:8000].  
+
+  Press Ctrl+C to stop the server
+
+
+   INFO  Environment modified. Restarting server...  
+
+   INFO  Server running on [http://0.0.0.0:8000].  
+
+  Press Ctrl+C to stop the server
+
+  Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+  2026-10-12 20:07:04 / .......................................... ~ 501.96ms
+
+   INFO  Environment modified. Restarting server...  
+
+   INFO  Server running on [http://0.0.0.0:8000].  
+
+  Press Ctrl+C to stop the server
+
+
+   INFO  Environment modified. Restarting server...  
+
+   INFO  Server running on [http://0.0.0.0:8000].  
+
+  Press Ctrl+C to stop the server
+
+  Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+  2026-10-12 20:07:24 / ............................................ ~ 0.39ms
+  Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+  2026-10-12 20:07:30 / ............................................ ~ 0.59ms
+
+   INFO  Environment modified. Restarting server...  
+
+   INFO  Server running on [http://0.0.0.0:8000].  
+
+  Press Ctrl+C to stop the server
+
+  Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+  2026-10-12 20:08:57 / .......................................... ~ 503.38ms
+
+   INFO  Environment modified. Restarting server...  
+
+   INFO  Server running on [http://0.0.0.0:8000].  
+
+  Press Ctrl+C to stop the server
+
