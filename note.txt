@@ -1,0 +1,1257 @@
+NSS CONNECT
+
+Product Requirements Document
+
+Product name: NSS Connect
+Brand attribution: Powered by Devzoft
+Version: 1.0
+Document status: Final product specification for MVP development
+Application type: Responsive web application and Progressive Web App (PWA)
+Primary audience: NSS volunteers, Programme Officers, college administrators, and institutional coordinators
+Initial market: Colleges and educational institutions in India
+Primary language: English
+Future languages: Malayalam and Hindi
+
+---
+
+1. Executive Summary
+
+NSS Connect is a centralized digital platform designed to simplify the management of National Service Scheme activities across colleges and educational institutions.
+
+The platform connects volunteers, Programme Officers, college administrators, and institutional coordinators through one application.
+
+It replaces fragmented administrative processes with a unified digital workflow for volunteer enrollment, event management, attendance tracking, service-hour verification, activity reporting, announcements, certificates, and institutional analytics.
+
+The application must provide a professional, accessible, mobile-first experience while maintaining accurate records, secure access controls, and reliable data separation between institutions.
+
+NSS Connect will initially launch as a pilot-ready application for one institution, using an architecture designed to support multiple institutions without requiring a fundamental redesign.
+
+1.1 Product vision
+
+Make NSS administration simpler, volunteer participation more accessible, and community-service outcomes easier to document and understand.
+
+1.2 Product mission
+
+Connect volunteers and institutions through a reliable digital platform that supports the planning, execution, documentation, and reporting of community-service activities.
+
+1.3 Product tagline
+
+Connect. Volunteer. Transform.
+
+1.4 Brand identity
+
+- Product: NSS Connect
+- Brand attribution: Powered by Devzoft
+- Primary logo: National Service Scheme logo supplied by the product owner
+- Visual direction: Modern, professional, trustworthy, accessible, and community-oriented
+
+The application must not imply official government ownership or endorsement without appropriate authorization.
+
+---
+
+2. Problem Statement
+
+NSS activities require coordination between volunteers, Programme Officers, educational institutions, and community organizations.
+
+Manual registers, spreadsheets, messaging applications, and disconnected documents can make these responsibilities difficult to manage.
+
+The main problems are:
+
+1. Volunteer information is maintained in different locations.
+2. Event announcements are scattered across communication channels.
+3. Registration and participant coordination require manual effort.
+4. Attendance records are difficult to maintain consistently.
+5. Service-hour calculations can contain errors or duplicate entries.
+6. Activity reports and photographs are difficult to organize.
+7. Institutional reporting consumes administrative time.
+8. Volunteers lack a unified view of their participation history.
+9. Records may be difficult to verify when corrections are needed.
+10. Institutions lack a consistent view of their documented community-service activities.
+
+Proposed solution
+
+NSS Connect provides one centralized application where institutions manage NSS operations and volunteers access their personal participation records.
+
+All important actions must be recorded in a persistent database and processed through permission-controlled workflows.
+
+---
+
+3. Product Goals
+
+3.1 Primary goals
+
+- Digitize volunteer enrollment and profile management.
+- Centralize NSS event discovery and registration.
+- Simplify attendance recording.
+- Track submitted, pending, approved, and rejected service-hour records.
+- Enable structured activity documentation.
+- Reduce repetitive administrative work.
+- Provide institution-specific dashboards.
+- Generate accurate reports and exports.
+- Support mobile and desktop access.
+- Maintain a reliable historical record of participation.
+- Protect student information through appropriate access controls.
+
+3.2 Success metrics
+
+The following are initial targets for the pilot. They are proposed targets, not existing results.
+
+Metric| Target
+Volunteer profile completion| At least 85%
+Successful event registration completion| At least 95%
+Attendance records linked to registered events| At least 95%
+Service-hour records processed within seven days| At least 90%
+Successful report exports| At least 98%
+Critical authorization defects at launch| Zero known unresolved defects
+Primary mobile workflows| All supported
+Pilot user satisfaction| At least 80% positive feedback
+
+Metrics must be measured using real application data.
+
+---
+
+4. Target Users and Roles
+
+The application must implement server-side role-based access control.
+
+4.1 Super Administrator
+
+Manages the platform.
+
+Permissions:
+
+- Create and manage institutions.
+- Assign institutional administrators.
+- Suspend or reactivate institutions.
+- View platform-level statistics.
+- Manage global configuration.
+- Review security events and audit logs.
+- Manage platform-wide settings.
+
+4.2 College Administrator
+
+Manages one institution.
+
+Permissions:
+
+- Update institution information.
+- Create and manage NSS units.
+- Assign Programme Officers.
+- Review institutional volunteer records.
+- View institution-wide events.
+- Generate authorized reports.
+- Review administrative activity.
+
+4.3 Programme Officer
+
+Manages assigned NSS units.
+
+Permissions:
+
+- Approve volunteer enrollment.
+- Manage assigned volunteers.
+- Create, publish, update, and cancel events.
+- Manage event registrations.
+- Record and finalize attendance.
+- Review service-hour submissions.
+- Review activity reports.
+- Publish announcements.
+- Issue authorized certificates.
+- Generate unit reports.
+
+4.4 Event Coordinator
+
+Manages assigned activities.
+
+Permissions:
+
+- View assigned events.
+- Access permitted participant lists.
+- Record attendance when authorized.
+- Upload event documentation.
+- Submit event completion reports.
+
+4.5 Volunteer
+
+Participates in NSS activities.
+
+Permissions:
+
+- Manage permitted personal information.
+- Discover events.
+- Register for events.
+- View registration status.
+- View attendance records.
+- Track verified service hours.
+- Submit activity reports where permitted.
+- View achievements.
+- Download authorized certificates.
+- Receive notifications.
+- Request record corrections.
+
+4.6 Public Visitor
+
+Accesses publicly available information.
+
+Permissions:
+
+- Browse public events.
+- View approved impact stories.
+- Read public announcements.
+- Learn about NSS Connect.
+- Register for an account.
+
+Public visitors must not access private profiles, internal reports, or attendance records.
+
+---
+
+5. Platform Scope
+
+The application consists of three primary interfaces.
+
+5.1 Public website
+
+Provides product information, publicly available events, approved activity stories, and account registration.
+
+5.2 Volunteer application
+
+Provides event discovery, registration, personal records, service-hour tracking, reports, certificates, and notifications.
+
+5.3 Administrative application
+
+Provides institution management, volunteer management, event operations, attendance verification, reporting, approvals, and platform administration.
+
+All interfaces must use a consistent design system and share the same authorized backend and database.
+
+---
+
+6. Information Architecture and Routes
+
+6.1 Public routes
+
+Route| Purpose
+"/"| Landing page
+"/about"| About NSS Connect
+"/events"| Public event directory
+"/events/[id]"| Event details
+"/impact"| Approved impact stories
+"/login"| Login
+"/register"| Registration
+"/forgot-password"| Password recovery
+"/reset-password"| Password reset
+"/verify-email"| Email verification
+"/privacy"| Privacy policy
+"/terms"| Terms and conditions
+"/contact"| Contact page
+
+6.2 Volunteer routes
+
+Route| Purpose
+"/dashboard"| Personal dashboard
+"/profile"| Profile management
+"/events"| Event discovery
+"/my-registrations"| Event registrations
+"/my-attendance"| Attendance history
+"/service-hours"| Service-hour records
+"/activity-reports"| Activity reports
+"/achievements"| Achievements
+"/certificates"| Certificates
+"/notifications"| Notifications
+"/settings"| Account settings
+
+6.3 Programme Officer routes
+
+Route| Purpose
+"/officer/dashboard"| Unit dashboard
+"/officer/volunteers"| Volunteer management
+"/officer/volunteers/[id]"| Volunteer details
+"/officer/events"| Event management
+"/officer/events/new"| Event creation
+"/officer/events/[id]"| Event administration
+"/officer/attendance"| Attendance management
+"/officer/service-hours"| Service-hour approvals
+"/officer/reports"| Activity report review
+"/officer/announcements"| Announcements
+"/officer/certificates"| Certificate management
+"/officer/analytics"| Unit analytics
+
+6.4 College Administrator routes
+
+Route| Purpose
+"/institution/dashboard"| Institution dashboard
+"/institution/units"| NSS unit management
+"/institution/officers"| Officer assignments
+"/institution/volunteers"| Institutional volunteer records
+"/institution/events"| Institution-wide events
+"/institution/reports"| Institutional reports
+"/institution/audit-logs"| Audit history
+"/institution/settings"| Institution settings
+
+6.5 Super Administrator routes
+
+Route| Purpose
+"/admin/dashboard"| Platform dashboard
+"/admin/institutions"| Institution management
+"/admin/users"| Account administration
+"/admin/analytics"| Platform analytics
+"/admin/audit-logs"| Platform audit logs
+"/admin/settings"| Global settings
+
+Every route must enforce the appropriate access policy. Route names alone do not provide security.
+
+---
+
+7. Functional Requirements
+
+FR-001: Authentication and Account Management
+
+Priority: P0
+
+The application must provide:
+
+- Email and password registration.
+- Secure login and logout.
+- Email verification.
+- Password recovery.
+- Session management.
+- Account activation and suspension.
+- Server-side authorization.
+- Secure privileged-account management.
+
+Acceptance criteria
+
+- Duplicate email registration is rejected.
+- Unverified accounts follow the configured verification policy.
+- Users cannot assign themselves privileged roles.
+- Expired or invalid reset tokens are rejected.
+- Protected pages require authentication.
+- Authentication failures do not disclose unnecessary account information.
+
+FR-002: Institution and NSS Unit Management
+
+Priority: P0
+
+Authorized administrators must be able to:
+
+- Create institutions.
+- Edit institution information.
+- Create NSS units.
+- Assign Programme Officers.
+- Activate or deactivate units.
+- View institution-specific statistics.
+
+Acceptance criteria
+
+- Each NSS unit belongs to an institution.
+- Unit codes are unique within their institution.
+- Programme Officers can access only assigned units.
+- Institutions cannot access another institution's private data.
+
+FR-003: Volunteer Management
+
+Priority: P0
+
+The application must support:
+
+- Volunteer enrollment.
+- Volunteer approval.
+- Profile editing.
+- Academic-year information.
+- Unit assignment.
+- Active and inactive status.
+- Participation history.
+- Service-hour summaries.
+- Enrollment rejection with a recorded reason.
+
+Acceptance criteria
+
+- Volunteer records are linked to a user and institution.
+- Unauthorized users cannot edit another volunteer's private profile.
+- Institutional staff can access records only within their permitted scope.
+- Historical participation remains available when an account is deactivated.
+
+FR-004: Event Management
+
+Priority: P0
+
+Authorized staff must be able to create, publish, update, and cancel events.
+
+Required fields:
+
+- Title.
+- Description.
+- Category.
+- Cover image.
+- Organizing institution and unit.
+- Start and end dates.
+- Venue.
+- Registration deadline.
+- Participant capacity.
+- Eligibility conditions.
+- Event visibility.
+- Registration status.
+- Event status.
+
+Supported categories should include cleanliness drives, tree planting, blood donation campaigns, health awareness, digital literacy, educational outreach, environmental activities, special camps, and other authorized service activities.
+
+Event statuses
+
+- Draft.
+- Published.
+- Ongoing.
+- Completed.
+- Cancelled.
+
+Acceptance criteria
+
+- Draft events are not publicly visible.
+- Published events appear in authorized event listings.
+- Registration deadlines are enforced.
+- Cancelled events cannot accept registrations.
+- Event updates are validated and recorded.
+- Registered participants receive important event notifications when notifications are configured.
+
+FR-005: Event Registration
+
+Priority: P0
+
+Volunteers must be able to register for available events.
+
+The backend must check:
+
+- Authentication.
+- Volunteer enrollment status.
+- Event publication status.
+- Eligibility.
+- Registration deadline.
+- Existing registrations.
+- Available capacity.
+
+When an event is full, the system must apply its configured waitlist policy.
+
+Acceptance criteria
+
+- Duplicate registrations are prevented.
+- Capacity cannot be exceeded through concurrent requests.
+- Registration status is saved in the database.
+- Volunteers can view their registration status.
+- Authorized staff can manage registrations.
+- Cancellation and withdrawal rules are consistently applied.
+
+FR-006: Attendance Management
+
+Priority: P0
+
+Programme Officers and authorized coordinators must be able to record attendance.
+
+Supported statuses:
+
+- Present.
+- Absent.
+- Excused.
+- Pending verification.
+- Finalized.
+
+The MVP must support manual attendance. QR-based attendance is a subsequent enhancement.
+
+Acceptance criteria
+
+- Attendance is linked to an event and volunteer.
+- Duplicate attendance records are prevented.
+- Only authorized staff can finalize attendance.
+- Volunteers cannot directly modify finalized records.
+- Corrections require authorization and are audited.
+- Attendance history remains available after event completion.
+
+FR-007: Service-Hour Management
+
+Priority: P0
+
+The application must maintain service-hour records independently from registration and attendance.
+
+Each record must contain:
+
+- Volunteer.
+- Event or authorized service activity.
+- Submitted hours.
+- Approved hours.
+- Submission date.
+- Approval status.
+- Reviewer.
+- Review timestamp.
+- Rejection reason, when applicable.
+
+Workflow
+
+"Draft → Pending Review → Approved or Rejected"
+
+Acceptance criteria
+
+- Only approved hours contribute to verified totals.
+- Volunteers cannot approve their own hours.
+- Rejected submissions do not contribute to verified totals.
+- Duplicate submissions are prevented.
+- Approved hours cannot exceed the permitted participation limit.
+- Corrections to approved records require an authorized, audited process.
+- Applicable institutional requirements can be configured.
+
+FR-008: Activity Reports
+
+Priority: P0
+
+Authorized users must be able to create and submit reports for completed activities.
+
+Required information:
+
+- Activity title.
+- Event reference.
+- Date and venue.
+- Objectives.
+- Description.
+- Participant count.
+- Outcomes.
+- Challenges.
+- Photographs and supporting documents.
+- Author.
+- Review status.
+- Reviewer comments.
+
+Workflow
+
+"Draft → Submitted → Under Review → Approved or Rejected"
+
+Acceptance criteria
+
+- Drafts can be saved.
+- Submitted reports can be reviewed by authorized staff.
+- Rejected reports include a reason.
+- Approved reports maintain their revision history.
+- Private reports remain restricted.
+- Public publication requires explicit authorization.
+
+FR-009: Notifications and Announcements
+
+Priority: P1
+
+The application must support in-app notifications for:
+
+- Enrollment decisions.
+- Registration confirmation.
+- Waitlist updates.
+- Event changes.
+- Event cancellation.
+- Attendance finalization.
+- Service-hour decisions.
+- Report decisions.
+- Certificate issuance.
+- Institutional announcements.
+
+Email delivery may be enabled through a configured provider.
+
+Acceptance criteria
+
+- Notifications are linked to their intended recipients.
+- Users can mark notifications as read.
+- Users cannot read another user's private notifications.
+- Failed email delivery does not silently delete the in-app notification.
+- Notification delivery status is recorded where supported.
+
+FR-010: Certificates and Achievements
+
+Priority: P1
+
+Authorized staff must be able to issue institution-approved certificates.
+
+Certificate records should include:
+
+- Recipient.
+- Certificate type.
+- Issuer.
+- Issue date.
+- Unique reference.
+- Related activity, where applicable.
+- Certificate status.
+- Stored document reference.
+
+Acceptance criteria
+
+- Unauthorized users cannot issue certificates.
+- Duplicate certificate references are prevented.
+- Issued certificates can be revoked through an authorized process.
+- Certificate downloads are permission-controlled.
+- Public verification reveals only the information necessary to verify the certificate.
+
+The application must not represent platform-generated certificates as official NSS certificates without the necessary authorization.
+
+FR-011: Analytics and Reporting
+
+Priority: P1
+
+The application must provide:
+
+- Volunteer participation summaries.
+- Event statistics.
+- Verified service-hour totals.
+- Attendance summaries.
+- Activity report counts.
+- Unit-wise comparisons.
+- Academic-year summaries.
+- Date-based filters.
+- PDF and CSV exports.
+
+Excel export may be included in the MVP if it does not delay core workflows.
+
+Acceptance criteria
+
+- Analytics use persisted application data.
+- Pending and approved records are distinguishable.
+- Exports respect access permissions.
+- Export failures display a useful error message.
+- Large reports are generated without exposing unauthorized data.
+
+FR-012: Public Impact Stories
+
+Priority: P1
+
+Authorized staff can publish selected activity stories.
+
+Published stories may include:
+
+- Activity description.
+- Date and venue.
+- Approved photographs.
+- Verified outcomes.
+- Participant counts.
+- Organizing institution.
+- Publication approval.
+
+Only explicitly approved content may be publicly visible.
+
+FR-013: Audit Logging
+
+Priority: P0
+
+Record important actions, including:
+
+- Role changes.
+- Institution changes.
+- Volunteer approval decisions.
+- Attendance modifications.
+- Service-hour approvals.
+- Report approval decisions.
+- Certificate issuance and revocation.
+- Account suspension.
+- Sensitive report exports.
+
+Audit logs must identify the actor, action, affected record, timestamp, and relevant change metadata.
+
+Passwords, session tokens, and unnecessary personal information must never be recorded in audit logs.
+
+---
+
+8. User Experience Requirements
+
+8.1 Design principles
+
+The interface must be:
+
+- Mobile-first.
+- Accessible.
+- Consistent.
+- Easy to navigate.
+- Suitable for students and administrators.
+- Clear about pending actions and approval status.
+- Efficient for repetitive administrative work.
+
+8.2 Application branding
+
+Use the supplied NSS logo without distorting its proportions or altering the original artwork.
+
+Suggested palette:
+
+Token| Value
+Primary navy| "#173B70"
+Accent red| "#E53935"
+Background| "#F7F9FC"
+Surface| "#FFFFFF"
+Main text| "#172033"
+Secondary text| "#667085"
+Success| "#16803C"
+Warning| "#B54708"
+Error| "#B42318"
+
+The palette is a proposed application design system, not a declaration of official government brand specifications.
+
+Use Inter or an equivalent readable typeface, Lucide icons, consistent form controls, and accessible colour contrast.
+
+8.3 Navigation
+
+Desktop layouts should use a sidebar and top navigation bar.
+
+Mobile layouts should use compact navigation and touch-friendly controls.
+
+Navigation must change according to the user's authorized role.
+
+8.4 Required interface states
+
+Every data-driven page must handle:
+
+- Initial loading.
+- Empty data.
+- Successful submission.
+- Validation errors.
+- Permission errors.
+- Network errors.
+- Server errors.
+- Confirmation before destructive actions.
+
+No primary button may be visually present without a defined action.
+
+8.5 Accessibility
+
+Target WCAG 2.2 AA.
+
+Implement:
+
+- Keyboard navigation.
+- Visible focus indicators.
+- Accessible labels.
+- Screen-reader-compatible controls.
+- Adequate colour contrast.
+- Clear form validation.
+- Responsive text.
+- Alternative text for meaningful images.
+
+---
+
+9. Technical Architecture
+
+9.1 Recommended stack
+
+Layer| Technology
+Frontend| Next.js and TypeScript
+Styling| Tailwind CSS
+UI components| shadcn/ui
+Icons| Lucide
+Backend| Next.js server-side routes and server actions
+Database| PostgreSQL
+ORM| Prisma
+Authentication| Auth.js or equivalent
+Validation| Zod
+Charts| Recharts
+Storage| Private S3-compatible object storage
+Testing| Vitest and Playwright
+Hosting| Managed production hosting
+
+9.2 Architecture principles
+
+- Use a modular monolith.
+- Separate domain logic from presentation components.
+- Validate all server-side inputs.
+- Enforce authorization on the server.
+- Use database transactions for related operations.
+- Keep credentials in environment variables.
+- Maintain migrations in source control.
+- Use private storage for nonpublic documents.
+- Implement automated tests for critical workflows.
+- Document deployment and recovery procedures.
+
+9.3 Suggested source structure
+
+nss-connect/
+├── public/
+│   ├── images/
+│   ├── icons/
+│   └── manifest.json
+├── prisma/
+│   ├── schema.prisma
+│   ├── migrations/
+│   └── seed.ts
+├── src/
+│   ├── app/
+│   │   ├── (public)/
+│   │   ├── (auth)/
+│   │   ├── dashboard/
+│   │   ├── officer/
+│   │   ├── institution/
+│   │   ├── admin/
+│   │   └── api/
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── layout/
+│   │   ├── forms/
+│   │   └── dashboard/
+│   ├── modules/
+│   │   ├── auth/
+│   │   ├── institutions/
+│   │   ├── volunteers/
+│   │   ├── events/
+│   │   ├── attendance/
+│   │   ├── service-hours/
+│   │   ├── reports/
+│   │   ├── notifications/
+│   │   └── certificates/
+│   ├── lib/
+│   │   ├── auth.ts
+│   │   ├── db.ts
+│   │   ├── permissions.ts
+│   │   ├── validation.ts
+│   │   └── storage.ts
+│   └── types/
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   └── e2e/
+├── .env.example
+├── package.json
+├── tsconfig.json
+└── README.md
+
+---
+
+10. Database Requirements
+
+Implement relational database models for:
+
+1. User.
+2. RoleAssignment.
+3. Institution.
+4. NSSUnit.
+5. VolunteerProfile.
+6. OfficerAssignment.
+7. Event.
+8. EventRegistration.
+9. Attendance.
+10. ServiceHourRecord.
+11. ActivityReport.
+12. ReportAttachment.
+13. Announcement.
+14. Notification.
+15. Certificate.
+16. AuditLog.
+17. Feedback.
+18. Achievement.
+
+Required integrity constraints
+
+- Unique user email.
+- Institution-scoped unit uniqueness.
+- Unique volunteer registration per event.
+- Unique attendance per volunteer and event.
+- Unique certificate reference.
+- Valid foreign-key relationships.
+- Nonnegative hour values.
+- Approved hours within the permitted participation limit.
+- Valid reviewer references.
+- Recorded approval timestamps.
+- Institution and unit ownership checks.
+
+Data integrity rules
+
+Important records must not be silently deleted.
+
+Historical attendance, service-hour approvals, and issued certificates must remain auditable even if a user or event becomes inactive.
+
+Use transactions to prevent inconsistent updates during registration, approval, and finalization workflows.
+
+---
+
+11. API and Backend Requirements
+
+Implement protected server endpoints or equivalent server actions for:
+
+- Authentication.
+- Institutions.
+- NSS units.
+- Volunteer management.
+- Event management.
+- Event registration.
+- Attendance.
+- Service-hour review.
+- Activity report review.
+- Notifications.
+- Certificates.
+- Analytics.
+- Audit logs.
+
+All endpoints must:
+
+- Validate incoming data.
+- Enforce role and institutional permissions.
+- Return consistent response structures.
+- Support pagination where appropriate.
+- Prevent duplicate operations.
+- Handle concurrent updates safely.
+- Avoid leaking sensitive information through errors.
+
+Use transactions for event capacity checks and other operations requiring atomic updates.
+
+---
+
+12. Security and Privacy
+
+12.1 Authentication
+
+- Use secure password hashing.
+- Protect authentication endpoints with rate limiting.
+- Use secure session handling.
+- Validate password-reset tokens.
+- Protect privileged accounts with stronger authentication where supported.
+
+12.2 Authorization
+
+- Apply server-side role checks.
+- Restrict access to assigned institutions and units.
+- Validate permissions for every protected operation.
+- Prevent role escalation.
+- Avoid relying solely on frontend checks.
+
+12.3 Data protection
+
+- Use HTTPS.
+- Protect database credentials.
+- Restrict file access.
+- Use private object storage.
+- Apply data minimization.
+- Establish retention and deletion policies.
+- Maintain tested backups.
+- Avoid collecting unnecessary sensitive information.
+
+12.4 Indian compliance
+
+Before launch, review applicable Indian data-protection legislation, institutional requirements, student-data handling practices, consent requirements, and any relevant NSS administrative rules.
+
+Do not collect sensitive student information unless it is necessary and appropriately protected.
+
+---
+
+13. Progressive Web Application Requirements
+
+The application should support installation on compatible mobile devices and desktop browsers.
+
+Required capabilities:
+
+- Web app manifest.
+- Application icons.
+- Responsive layouts.
+- Installable application experience.
+- Appropriate theme colours.
+- Offline fallback page.
+
+Full offline attendance and synchronization are not required for the initial MVP.
+
+Private records must not be cached in ways that expose information to other users of a shared device.
+
+---
+
+14. Non-Functional Requirements
+
+Category| Requirement
+Performance| Target common page loads under 2.5 seconds under normal conditions
+Availability| Target 99.5% monthly uptime after launch
+Security| Server-side authorization and secure authentication
+Privacy| Minimal collection and restricted access to personal data
+Accessibility| WCAG 2.2 AA target
+Compatibility| Current major mobile and desktop browsers
+Scalability| Multiple institutions and units
+Reliability| Automated backups and tested restoration
+Maintainability| Modular code and documented setup
+Observability| Error monitoring and operational logging
+Localization| English initially, Malayalam support planned
+
+These targets must be validated in the deployed environment.
+
+---
+
+15. MVP Scope
+
+The initial release must prioritize the workflows needed to manage one institution while retaining multi-institution architecture.
+
+P0, required for launch
+
+- Public landing page.
+- Authentication and password recovery.
+- Role-based access control.
+- Institution management.
+- NSS unit management.
+- Volunteer profiles and enrollment.
+- Event creation and registration.
+- Manual attendance management.
+- Service-hour submission and approval.
+- Activity report management.
+- Basic dashboards.
+- Critical audit logging.
+- CSV exports.
+- Responsive interface.
+- Database migrations and seed script.
+- Automated tests for core workflows.
+
+P1, next release
+
+- In-app and email notifications.
+- Certificate generation.
+- Advanced analytics.
+- Public impact stories.
+- QR attendance.
+- Excel exports.
+- Malayalam localization.
+- Enhanced PWA capabilities.
+
+Future enhancements
+
+- Offline attendance.
+- Optional location-assisted check-in.
+- Advanced volunteer recognition.
+- Additional integrations.
+- Regional coordination dashboards, subject to authorization.
+- Enhanced community impact analysis.
+
+---
+
+16. Development Phases
+
+Phase 1: Foundation
+
+- Project initialization.
+- Design system.
+- Database schema.
+- Authentication.
+- Authorization.
+- Institution management.
+
+Deliverable: Secure application foundation.
+
+Phase 2: Core operations
+
+- Volunteer enrollment.
+- NSS unit management.
+- Event creation.
+- Event discovery.
+- Event registration.
+
+Deliverable: Working volunteer and event workflows.
+
+Phase 3: Participation tracking
+
+- Attendance.
+- Service-hour submissions.
+- Service-hour approvals.
+- Volunteer participation history.
+
+Deliverable: Complete participation-record workflow.
+
+Phase 4: Reporting
+
+- Activity reports.
+- Approval workflows.
+- File uploads.
+- CSV exports.
+- Basic dashboards.
+
+Deliverable: Functional institutional reporting.
+
+Phase 5: Release readiness
+
+- Automated testing.
+- Authorization testing.
+- Accessibility checks.
+- Error monitoring.
+- Backup and recovery verification.
+- Deployment documentation.
+
+Deliverable: Pilot-ready release.
+
+Notifications, certificates, QR attendance, and advanced analytics may be delivered in subsequent iterations.
+
+---
+
+17. Testing Requirements
+
+Unit tests
+
+Test:
+
+- Input validation.
+- Service-hour calculations.
+- Event eligibility.
+- Registration rules.
+- Role permission functions.
+- Report status transitions.
+
+Integration tests
+
+Test:
+
+- Database writes.
+- Event registration transactions.
+- Attendance finalization.
+- Service-hour approval.
+- Report approval.
+- Notification creation.
+
+End-to-end tests
+
+Test the complete workflows:
+
+1. Volunteer registration.
+2. Volunteer enrollment approval.
+3. Event creation and publication.
+4. Event registration.
+5. Attendance recording.
+6. Service-hour approval.
+7. Activity report submission.
+8. Report review.
+9. Report export.
+
+Security tests
+
+Test:
+
+- Unauthorized access.
+- Cross-institution data access.
+- Privilege escalation.
+- Duplicate registrations.
+- Concurrent capacity requests.
+- Unauthorized attendance modification.
+- Private file access.
+- Invalid approval requests.
+
+---
+
+18. Acceptance Criteria
+
+The MVP is considered complete when all of the following are true.
+
+Authentication
+
+- Registration, login, logout, and password recovery work.
+- Privileged roles cannot be self-assigned.
+- Protected routes require authentication.
+
+Institution management
+
+- Administrators can create institutions and NSS units.
+- Programme Officers can be assigned to units.
+- Institutional data remains isolated.
+
+Events
+
+- Officers can create and publish events.
+- Volunteers can register.
+- Capacity and deadlines are enforced.
+- Cancelled events reject registrations.
+
+Attendance
+
+- Authorized staff can record attendance.
+- Duplicate attendance is prevented.
+- Finalized records cannot be silently changed.
+
+Service hours
+
+- Pending hours are excluded from verified totals.
+- Approved hours update totals correctly.
+- Approval decisions are auditable.
+
+Reports
+
+- Reports can be drafted, submitted, reviewed, and approved or rejected.
+- Authorized exports work.
+- Private documents remain protected.
+
+Production readiness
+
+- Database migrations execute successfully.
+- Automated core workflow tests pass.
+- Critical authorization tests pass.
+- Backup restoration has been tested.
+- Mobile and desktop workflows function.
+- Deployment documentation is available.
+
+---
+
+19. Risks and Mitigations
+
+Risk| Mitigation
+Incorrect service-hour calculations| Centralized calculation and approval logic
+Unauthorized record access| Server-side authorization and institution-scoped queries
+Duplicate event registration| Database constraints and transactional registration
+False attendance records| Authorized verification and audit logging
+Loss of historical records| Archival policies and tested backups
+Unapproved certificate issuance| Permission-controlled issuance
+Public exposure of student information| Private defaults and publication approval
+Scope expansion| Strict P0/P1 prioritization
+External service failures| Error handling and monitoring
+Confusion about official status| Clear product ownership and branding disclosures
+
+---
+
+20. Launch Strategy
+
+Pilot release
+
+Launch with one participating institution.
+
+The pilot should validate:
+
+- Volunteer enrollment.
+- Event creation and registration.
+- Attendance management.
+- Service-hour verification.
+- Activity reporting.
+- Administrator usability.
+- Mobile experience.
+- Data protection.
+
+Collect feedback from volunteers and Programme Officers before expanding.
+
+Expansion
+
+After the pilot:
+
+- Fix usability problems.
+- Review security and performance.
+- Improve reporting.
+- Add notifications and certificates.
+- Onboard additional institutions.
+- Establish operational support and documentation.
+
+---
+
+21. Definition of Done
+
+The initial release is complete only when:
+
+1. The application runs from documented setup instructions.
+2. The database initializes through migrations.
+3. An administrator can create an institution and NSS unit.
+4. A Programme Officer can be assigned.
+5. A volunteer can register and access the application.
+6. A Programme Officer can publish an event.
+7. A volunteer can register for the event.
+8. Attendance can be recorded and finalized.
+9. Service hours can be approved.
+10. Activity reports can be submitted and reviewed.
+11. Authorized users can export reports.
+12. Institutional data isolation is verified.
+13. Critical security tests pass.
+14. The application works on mobile and desktop.
+15. Deployment, backup, and recovery procedures are documented.
+
+A static prototype, hardcoded dashboard, or collection of nonfunctional buttons does not meet this definition.
+
+---
+
+22. Final Product Requirement
+
+Build NSS Connect as a complete, secure, multi-institution web application, initially deployed for a single pilot institution.
+
+Prioritize reliable operational workflows, clear role-based dashboards, accurate participation records, and a professional mobile-first interface.
+
+All essential functionality must connect to persistent storage and be validated on the server.
+
+Do not introduce advanced features at the expense of core reliability.
+
+NSS Connect, powered by Devzoft.
+
+Connect. Volunteer. Transform.
